@@ -1,0 +1,77 @@
+// These presets are not injected directly in html but used as inheritance by @extend
+// Custom Arrow
+.custom-arrow {
+    position: absolute;
+    @extend %v--align-center;
+    width: auto;
+    height: fit-content;
+    @extend %flex-center;
+    transition: all $quickTransition;
+
+    span {
+        position: absolute;
+        @extend %v--align-center;
+        height: 1px;
+        width: 5px;
+        transition: all $quickTransition;
+    }
+
+    .one {
+        left: -4px;
+        transform: rotate(45deg);
+    }
+
+    .two {
+        right: -4px;
+        transform: rotate(-45deg);
+    }
+}
+
+// Scroll Down thumbnail
+.scroll-down {
+    position: absolute;
+    height: auto;
+    width: fit-content;
+    z-index: inherit;
+    bottom: 25px;
+    @extend %h--align-center;
+    @include mobile-scr {
+        bottom: 60px;
+    }
+
+    p {
+        text-align: center;
+        position: relative;
+        font-size: 16px;
+        font-weight: $medium;
+        margin: 0;
+        @extend %flex-column--align-center;
+
+        i {
+            margin-top: 10px;
+            color: inherit;
+            font-size: 16px;
+            animation: scroll-arrow 1s ease-in-out infinite;
+        }
+    }
+}
+
+.pagination-arrows {
+    position: absolute;
+    width: 100%;
+    height: fit-content;
+    @extend %v-h--align-center;
+    @extend %flex-row--justify-between;
+    z-index: 2;
+
+    i {
+        color: $brandColor;
+        transition: $quickTransition;
+        opacity: 1;
+        cursor: pointer;
+    }
+
+    .swiper-button-disabled {
+        opacity: 0 !important;
+    }
+}

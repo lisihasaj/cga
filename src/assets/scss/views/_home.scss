@@ -1,0 +1,55 @@
+.home {
+    @extend .parent-component;
+
+    &__wrapper {
+        height: auto;
+    }
+
+    &__header {
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        @extend %v-h--align-center;
+        @extend %flex-column;
+        align-items: center;
+        justify-content: center;
+        @extend %cover;
+        background-position: 50% 50%;
+        z-index: 0;
+
+        &::before {
+            @extend .before--layer;
+            background-color: rgba($color: #ffffff, $alpha: 0.3);
+        }
+
+        &-content {
+            height: fit-content;
+            @extend %flex-column--start-top;
+            z-index: 1;
+
+            h6 {
+                @extend .component--braces-title;
+            }
+
+            h1 {
+                @extend .component--lg-title;
+                text-align: start;
+            }
+        }
+
+        &__scroll {
+            @extend .scroll-down;
+
+            p {
+                color: $grayText;
+            }
+        }
+    }
+
+    &__body {
+        z-index: 5;
+        margin-top: 100vh;
+        width: 100%;
+        height: auto;
+    }
+}

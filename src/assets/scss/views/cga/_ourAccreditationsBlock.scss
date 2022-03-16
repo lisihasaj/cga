@@ -1,0 +1,120 @@
+.our-accreditations-block {
+    @extend .child-component;
+    background-color: $white;
+    border-radius: $containerRadius;
+    box-shadow: $containerShadow;
+    @extend %flex-center;
+
+    &__wrapper {
+        padding-top: 100px;
+        @extend %flex-center;
+
+        .box {
+            width: 100%;
+            max-width: 850px;
+            height: auto;
+            @extend %flex-row--justify-between;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            @include lg-computer-scr {
+                width: 100%;
+            }
+
+            h6 {
+                width: inherit;
+                @extend .component--braces-title;
+            }
+
+            h1 {
+                width: inherit;
+                @extend .component--xl-title;
+                margin-bottom: 50px;
+            }
+
+            table {
+                width: 275px;
+                height: 275px;
+                margin-bottom: 15px;
+                background-color: $primaryGray;
+                border-radius: $boxRadius;
+                @include lg-computer-scr {
+                    width: 49%;
+                }
+                @include mini-tablet-scr {
+                    width: 100%;
+                }
+
+                tbody {
+                    tr {
+                        td {
+                            position: relative;
+                            text-align: center;
+                            @extend .body--text--lg;
+                            padding-left: 2vw;
+                            padding-right: 2vw;
+                            @include tablet-scr {
+                                font-size: 14px;
+                            }
+                            @include mini-tablet-scr {
+                                font-size: 18px;
+                            }
+
+                            img {
+                                position: absolute;
+                                @extend %v-h--align-center;
+                                filter: grayscale(1);
+                                max-width: 120px;
+                                height: auto;
+                                @include tablet-scr {
+                                    width: 70px;
+                                }
+                                @include mini-tablet-scr {
+                                    width: 100px;
+                                }
+                            }
+                        }
+
+                        &:first-child {
+                            height: 60%;
+                        }
+
+                        &:last-child {
+                            height: 40%;
+                        }
+                    }
+                }
+
+                &:last-child {
+                    width: 561px;
+                    @include lg-computer-scr {
+                        width: 49%;
+                    }
+                    @include mini-tablet-scr {
+                        width: 100%;
+                    }    
+
+                    tbody {
+                        tr {
+                            height: 100%;
+
+                            td {
+                                vertical-align: middle;
+                                text-align: start;
+                                display: table-cell;
+
+                                &:first-child {
+                                    width: 35%;
+                                }
+
+                                &:last-child {
+                                    width: 65%;
+                                    padding-left: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

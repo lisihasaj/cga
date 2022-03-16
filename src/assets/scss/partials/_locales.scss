@@ -1,0 +1,33 @@
+.locales {
+    @extend %flex-row;
+    align-items: center;
+    justify-content: flex-start;
+
+    .current-locale {
+        @extend .uppercase-link;
+        color: $brandColor;
+        pointer-events: none !important;
+    }
+
+    li {
+        margin: 0 5px;
+        a {
+            @extend .uppercase-link;
+            color: $grayTitle;
+        }
+
+        &:hover {
+            a {
+                color: $white;
+            }
+        }
+
+        &:first-child {
+            margin-left: 0 !important;
+        }
+
+        &:last-child {
+            margin-right: 0 !important;
+        }
+    }
+}

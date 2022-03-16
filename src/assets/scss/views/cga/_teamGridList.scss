@@ -1,0 +1,98 @@
+.team-grid-list {
+    @extend .child-component;
+    background-color: $white;
+    @extend %flex-center;
+
+    &__wrapper {
+        padding-top: 13vh;
+        padding-bottom: 95px;
+        @extend %flex-row--justify-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        @include tablet-scr {
+            padding-top: 70px;
+        }
+        @include mini-tablet-scr {
+            padding-bottom: 60px;
+        }
+
+        .employee {
+            &-box {
+                width: 49%;
+                @extend %flex-row--justify-between;
+                align-items: flex-end;
+                margin-bottom: 50px;
+                @include tablet-scr {
+                    width: 100%;
+                }
+                @include mini-tablet-scr {
+                    flex-direction: column;
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            &__image {
+                width: 40%;
+                max-width: 300px;
+                height: 370px;
+                border-radius: $boxRadius;
+                @extend %cover;
+                background-position: 50% 25%;
+                @include mini-tablet-scr {
+                    width: 100%;
+                    max-width: unset;
+                }
+            }
+
+            &__data {
+                @extend %flex-column--start-top;
+                width: 55%;
+                padding-bottom: 20px;
+                @include mini-tablet-scr {
+                    width: 100%;
+                    padding-top: 20px;
+                }
+
+                h6 {
+                    text-transform: uppercase;
+                    font-weight: $regular;
+                    color: $grayText;
+                }
+
+                h6,
+                &__phone-number,
+                &__email {
+                    font-size: 13px;
+                    margin-bottom: 10px;
+                }
+
+                &__phone-number,
+                &__email {
+                    font-weight: $medium;
+                    color: $brandColor;
+                    text-decoration: none;
+                }
+
+                h3 {
+                    @extend .card--uppercase-title;
+                    color: $brandColor;
+                    letter-spacing: 2px;
+                    margin-bottom: 30px;
+                }
+
+                ul {
+                    margin-bottom: 30px;
+
+                    li {
+                        @extend .list-item;
+                        padding-left: 15px;
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+        }
+    }
+}

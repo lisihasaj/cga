@@ -1,0 +1,138 @@
+.consulting-block {
+    @extend .child-component;
+    border-radius: $containerRadius;
+    box-shadow: $containerShadow;
+    
+    &__wrapper {
+        height: 100%;
+        width: inherit;
+        @extend %flex-center;
+        background-color: $white;
+        padding-top: 16vh;
+        padding-bottom: 20vh;
+        @include tablet-scr {
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+        @include mini-tablet-scr {
+            padding-bottom: 50px;
+        }
+    }
+
+    &__content {
+        width: 750px;
+        height: auto;
+        @extend %flex-column;
+        align-items: center;
+        @include tablet-scr {
+            width: 100%;
+        }
+
+        .text {
+            width: 90%;
+            @extend %flex-column;
+            align-items: center;
+            margin-bottom: 50px;
+
+            h6 {
+                @extend .component--braces-title;
+            }
+
+            h1 {
+                @extend .component--lg-title;
+                margin-bottom: 40px;
+            }
+
+            p {
+                @extend .body--text--lg;
+
+                &:last-child {
+                    margin-top: 20px;
+                    margin-bottom: 0;
+                    font-weight: $light !important;
+                }
+            }
+        }
+    
+        .cta {
+            @extend .cta--outlined;
+        }
+    
+        .cards {
+            width: 100%;
+            height: auto;
+            @extend %flex-row--justify-between;
+            margin-top: 50px;
+            @include tablet-scr {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            &__item {
+                width: 45%;
+                height: 470px;
+                overflow: hidden;
+                border-radius: $boxRadius;
+                @extend .card--hover-effect;
+                cursor: pointer;
+                @include tablet-scr {
+                    width: 47%;
+                    min-width: 300px;
+                    margin-bottom: 50px;
+                    margin-left: 10px;
+                    margin-right: 10px;
+                }
+                @include mini-tablet-scr {
+                    width: 90%;
+                }
+
+                .image-wrapper {
+                    width: 100%;
+                    height: 75%;
+                    overflow: hidden;
+                    @extend %flex-center;
+
+                    img {
+                        height: 100%;
+                        width: auto;
+                        @include mini-tablet-scr {
+                            height: auto;
+                            width: 130%;
+                        }
+                        @include mobile-scr {
+                            height: 100%;
+                            width: auto;
+                        }
+                    }
+                }
+
+                h4 {
+                    font-size: 25px;
+                    font-weight: $regular;
+                    color: $grayText;
+                    width: 100%;
+                    height: 25%;
+                    padding: 20px 25px;
+                    @extend %flex-center;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    &__about-subsection {
+        .consulting-block {
+            &__wrapper {
+                background-color: $primaryGray;
+                padding-top: 10vh;
+                padding-bottom: 12vh;
+            }
+
+            &__content {
+                .text {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

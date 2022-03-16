@@ -1,0 +1,56 @@
+// SWIPER
+@import '~swiper/css/swiper.css';
+
+//AOS
+@import "./aos/index";
+
+// UTILS
+@import "./utils/index";
+
+// BASE
+@import './base/index';
+
+// PARTIALS
+@import './partials/index';
+
+// VIEWS
+@import './views/index';
+
+
+// Document resets
+* {
+    font-family: 'Akzidenz-Grotesk BQ';
+}
+
+body {
+	background-color: $white;
+}
+
+// App backdrop
+.backdrop {
+	position: fixed;
+	background-color: rgba($color: #000000, $alpha: 0.8);
+	@extend %full-screen--size;
+	@extend %v-h--align-center;
+	z-index: $backdrop;
+	opacity: 0;
+	visibility: hidden;
+	transition: all $moderateTransition;
+
+	&__show {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+// Native transitioning
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease-out;
+}
+
+.fade-enter,
+.fade-leave-active,
+.fade-leave-to {
+  opacity: 0;
+}

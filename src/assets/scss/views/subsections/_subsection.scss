@@ -1,0 +1,337 @@
+// CGA & Benefits subsection style is shared here
+.subsection {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+
+    &__body {
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+        z-index: $subsectionBodyIndex;
+        background-color: $white;
+        @include wide-scr {
+            min-height: auto;
+        }
+        @include computer-scr {
+            min-height: auto
+        }
+    }
+}
+
+// Publications subsection style
+// Shared styling
+.main-container {
+    @extend .parent-component;
+    @extend %flex-column;
+    align-items: center;
+    @include wide-scr {
+        min-height: auto;
+    }
+}
+
+.main-container-wrapper {
+    background-color: $white;
+    padding-top: calc(15vh + 50px);
+    padding-bottom: 100px;
+    @extend %flex-column--align-center;
+    @include mini-tablet-scr {
+        padding-top: 17vh;
+        padding-bottom: 60px;
+    }
+}
+
+.main-container-title {
+    @extend %flex-column--align-center;
+
+    h6 {
+        @extend .component--braces-title;
+    }
+
+    h1 {
+        @extend .component--lg-title;
+    }
+}
+
+// News
+.news {
+    @extend .main-container;
+
+    &::after {
+        @extend .layer--fixed;
+    }
+
+    &__wrapper {
+        @extend .main-container-wrapper;
+    }
+
+    &__title {
+        @extend .main-container-title;
+    }
+
+    span[mode="out-in"],
+    &__articles {
+        width: inherit;
+        @extend %flex-row--justify-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    &__articles {
+        margin-top: 60px;
+        margin-bottom: 60px;
+
+        .article {
+            width: 47%;
+            height: 230px;
+            margin-bottom: 30px;
+            @extend .article-card;
+            @include computer-scr {
+                width: 49%;
+            }
+            @include tablet-scr {
+                width: 100%;
+            }
+
+            &__image {
+                @extend .article-card--image;
+                @include mini-tablet-scr {
+                    height: 300px
+                }
+            }
+
+            &__text {
+                @extend .article-card--text;
+                padding: 30px 40px;
+                @include computer-scr {
+                    padding: 20px 15px;
+                }
+                @include mini-tablet-scr {
+                    height: 150px
+                }
+
+                h4 {
+                    margin-bottom: 30px;
+                    @include computer-scr {
+                        margin-bottom: 15px;
+                    }
+                }
+            }
+
+            &:hover,
+            &:active {
+                transform: scale(1.02);
+                box-shadow: $boxShadow;
+                background-color: darken($primaryGray, 5%);
+                @extend .article-card--animated;
+            }
+        }
+    }
+
+    &__cta {
+        @extend .cta--outlined;
+    }
+}
+
+// Wish Cards
+.wish-cards {
+    @extend .main-container;
+
+    &::after {
+        @extend .layer--fixed;
+    }
+
+    &__wrapper {
+        @extend .main-container-wrapper;
+        min-height: 100vh;
+        width: 100%;
+        @include wide-scr {
+            min-height: auto
+        }
+
+        &__title {
+            @extend .main-container-title;
+        }
+
+        .card-swiper {
+            &__container {
+                position: relative;
+                width: 100%;
+                height: auto;
+
+                i {
+                    position: absolute;
+                    @extend %v--align-center;
+                    font-size: 44px;
+                    color: $brandColor;
+                    transition: $quickTransition;
+                    height: fit-content;
+                    opacity: 1;
+                    z-index: 2;
+                    @include tablet-scr {
+                        display: none;
+                    }
+
+                    &:first-child {
+                        left: 1vw;
+                    }
+    
+                    &:last-child {
+                        right: 1vw;
+                    }
+                }
+
+                .swiper-button-disabled {
+                    opacity: 0;
+                }
+            }
+
+            &__body {
+                width: inherit;
+                z-index: 0;
+
+                .swiper {
+                    &-wrapper {
+                        width: inherit;
+                        padding: 90px 0;
+                    }
+
+                    &-slide {
+                        height: 500px;
+                        @extend %flex-row;
+                        background-color: $primaryGray;
+                        transition: $moderateTransition;
+                        z-index: 0;
+                        opacity: 0.5;
+                        cursor: grab;
+                        @include mini-tablet-scr {
+                            flex-direction: column;
+                        }
+        
+                        .image,
+                        .text {
+                            height: 100%;
+                            width: 50%;
+                            @include mini-tablet-scr {
+                                width: 100%;
+                                height: 50%;
+                            }
+                        }
+        
+                        .image {
+                            @extend %cover;
+                            background-position: 50% 50%;
+                        }
+        
+                        .text {
+                            @extend %flex-column--align-start;
+                            padding: 7vh 2vw 3vh 2vw;
+                            @include mini-tablet-scr {
+                                padding: 20px;
+                            }
+        
+                            h4 {
+                                font-size: 18px;
+                                font-weight: $medium;
+                                color: $brandColor;
+                                margin-top: 5px;
+                                margin-bottom: 10px;
+                                text-transform: uppercase;
+                            }
+        
+                            p {
+                                font-size: 13px;
+                                font-weight: $regular;
+                                color: $grayTitle;
+                            }
+                        }
+        
+                        &-active {
+                            opacity: 1;
+                            transform: scale(1.15);
+                            z-index: 1;
+                            box-shadow: $boxShadowHovered;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        } 
+
+        .thumb-swiper {
+            &__container {
+                position: relative;
+                width: 350px;
+                height: auto;
+                @include mini-tablet-scr {
+                    width: 300px;
+                }
+            }
+
+            &__body {
+                width: 100%;
+                z-index: 3;
+
+                .swiper {
+                    &-wrapper {
+                        width: 100%;
+                    }
+        
+                    &-slide {
+                        position: relative;
+                        z-index: 0;
+                        @extend %flex-center;
+                        cursor: pointer;
+
+                        span {
+                            color: $brandColor;
+                            font-size: 18px;
+                            font-weight: $medium;
+                            opacity: 0.5;
+                            transition: $moderateTransition;
+                        }
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            right: -7px;
+                            @extend %v--align-center;
+                            width: 7px;
+                            height: 3px;
+                            background-color: $brandColor;
+                            opacity: 0.5;
+                        }
+
+                        &-active {
+                            span {
+                                opacity: 1;
+                            }
+                        }
+
+                        &:last-child {
+                            &::after {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &__arrows {
+                @extend .pagination-arrows;
+
+                i {
+                    font-size: 20px;
+
+                    &:first-child {
+                        margin-left: -20px;
+                    }
+
+                    &:last-child {
+                        margin-right: -20px;
+                    }
+                }
+            }
+        } 
+    }
+}

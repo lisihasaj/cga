@@ -1,0 +1,150 @@
+.subsection-text-block {
+    @extend .child-component;
+    background-color: $white;
+    z-index: $subsectionBodyIndex;
+    @extend %flex-center;
+
+    &__wrapper {
+        position: relative;
+        padding-top: 80px;
+        padding-bottom: 120px;
+        @extend %flex-center;
+    }
+
+    &__content {
+        width: 60%;
+        height: auto;
+        @extend %flex-column--align-center;
+        @include computer-scr {
+            width: 100%;
+        }
+
+        h6 {
+            @extend .component--braces-title;
+        }
+
+        h1 {
+            @extend .component--lg-title;
+            text-align: start;
+            margin-bottom: 35px;
+        }
+
+        p {
+            @extend .body--text--lg;
+            width: 70%;
+            @include tablet-scr {
+                width: 100%;
+            }
+        }
+
+        table {
+            margin-top: 65px;
+            width: 100%;
+            background-color: $primaryGray;
+            border-radius: $boxRadius;
+            table-layout: fixed;
+
+            // Shared values of this table only
+            $xTablePadding: 3vw;
+            $yTablePadding: 60px;
+            $yRowPadding: 20px;
+            $xRowPadding: 1.5vw;
+            $specificBorderWidth: 85%;
+
+            thead {
+                tr {
+                    th {
+                        color: $grayText;
+                        text-align: center;
+                        padding-top: $yTablePadding;
+                        padding-left: $xRowPadding;
+                        padding-right: $xRowPadding;
+                        padding-bottom: 10px;
+                        font-size: 14px;
+                        font-weight: $regular;
+
+                        &:first-child {
+                            padding-left: $xTablePadding;
+                            text-align: start;
+                        }
+
+                        &:last-child {
+                            padding-right: $xTablePadding;
+                        }
+                    }
+                }
+            }
+
+            tbody {
+                tr {
+                    td {
+                        position: relative;
+                        color: $linksColor;
+                        text-align: center;
+                        font-size: 20px;
+                        font-weight: $regular;
+                        padding: $yRowPadding $xRowPadding;
+                        @include mini-tablet-scr {
+                            font-size: 16px;
+                        }
+                        @include mobile-scr {
+                            font-size: 14px;
+                        }
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            height: 1px;
+                            width: 100%;
+                            background-color: $grayTitle;
+                        }
+
+                        &:first-child {
+                            padding-left: $xTablePadding;
+                            text-align: start;
+                            font-weight: $medium;
+
+                            &::after {
+                                width: $specificBorderWidth;
+                                right: 0;
+                                left: unset;
+                            }
+                        }
+
+                        &:last-child {
+                            padding-right: $xTablePadding;
+
+                            &::after {
+                                width: $specificBorderWidth;
+                                left: 0;
+                                right: unset;
+                            }
+                        }
+                    }
+
+                    &:last-child {
+                        td {
+                            padding-bottom: $yTablePadding;
+                            border-bottom: none;
+
+                            &::after {
+                                display: none
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__scroll {
+        @extend .scroll-down;
+
+        p {
+            color: $grayTitle;
+        }
+    }
+}

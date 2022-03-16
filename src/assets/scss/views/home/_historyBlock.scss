@@ -1,0 +1,46 @@
+.history-block {
+    @extend .child-component;
+    @extend %flex-center;
+    @extend %cover;
+    background-position: 50% 50%;
+    @include mini-tablet-scr {
+        background-position: 35% 50%;
+    }
+
+    &__wrapper {
+        position: relative;
+        height: 700px;
+        @extend %flex--justify-end;
+        align-items: center;
+    }
+
+    &__content {
+        width: 50%;
+        @extend %flex-column--align-start;
+        justify-content: center;
+        z-index: 1;
+        @include tablet-scr {
+            width: 70%;
+        }
+        @include mini-tablet-scr {
+            width: 80%;
+        }
+
+        .text {
+            width: 100%;
+
+            h6 {
+                @extend .component--braces-title;
+            }
+
+            h1 {
+                @extend .component--md-title;
+                margin-bottom: 30px;
+            }
+        }
+
+        .cta {
+            @extend .cta--branded;
+        }
+    }
+}

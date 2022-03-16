@@ -1,0 +1,80 @@
+.admin-bar {
+  position: fixed;
+  top: -60px;
+  left: 0;
+  background-color: rgba($color: #000000, $alpha: 0.4);
+  width: 100%;
+  color: $white;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 999;
+  transition: all 0.3s ease-in-out;
+  box-shadow: none;
+  @include tablet-scr {
+    top: -205px;
+  }
+  &.show {
+    top: 0;
+    background-color: rgba($color: #000000, $alpha: 1);
+    box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.1);
+  }
+  .items {
+    float: right;
+    span {
+      font-size: 18px;
+    }
+  }
+  svg {
+    height: 30px;
+    width: 70px;
+    margin-right: 20px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    * {
+      fill: $white;
+    }
+  }
+  a {
+    display: inline-block;
+    color: inherit;
+    margin: 0 15px;
+    outline: none;
+    text-decoration: none;
+    transition: 0.3s all ease;
+    &:hover {
+      opacity: 0.8;
+    }
+    @include tablet-scr {
+      display: flex;
+      margin-bottom: 15px;
+      justify-content: flex-end;
+      span {
+        order: 1;
+      }
+      i {
+        order: 2;
+      }
+    }
+  }
+  .greet {
+    margin-left: 80px;
+  }
+  &__toggler {
+    position: absolute;
+    bottom: -37px;
+    border-radius: 0 0 5px 5px;
+    left: 10px;
+    background-color: inherit;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s all ease;
+    z-index: inherit;
+    @include tablet-scr {
+      display: block;
+    }
+    &:hover {
+      background-color: $black;
+    }    
+  }
+}

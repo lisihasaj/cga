@@ -1,0 +1,35 @@
+.privacy-policy {
+    @extend .parent-component;
+    @extend %flex-column--align-center;
+
+    &::after {
+        @extend .layer--fixed;
+    }
+
+    &__wrapper {
+        padding-top: calc(15vh + 50px);
+        padding-bottom: 120px;
+        @include mini-tablet-scr {
+            padding-bottom: 60px;
+        }
+
+        h6 {
+            @extend .component--braces-title;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            font-size: 30px;
+            font-weight: $regular;
+            color: $linksColor;
+            margin-top: 35px;
+            margin-bottom: 16px;
+            padding-top: 35px;
+            border-top: 1px solid $grayTitle;
+        }
+
+        p {
+            @extend .body--text--lg;
+        }
+    }
+}

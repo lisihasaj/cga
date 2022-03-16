@@ -1,0 +1,186 @@
+.login {
+    @extend .parent-component;
+    @extend %flex-column--align-center;
+
+    &::after {
+        @extend .layer--fixed;
+    }
+
+    &__wrapper {
+        position: relative;
+        @extend %flex-column--align-center;
+        justify-content: center;
+        padding-top: 12vh;
+        padding-bottom: 50px;
+        height: calc(100vh - 50px);
+        min-height: 900px;
+        @include mini-tablet-scr {
+            min-height: 950px;
+        }
+
+        .page-title {
+            width: 580px;
+            margin-bottom: 60px;
+            @include tablet-scr {
+                width: 100%
+            }
+
+            h3 {
+                @extend .card--uppercase-title;
+                color: $brandColor;
+                margin-bottom: 20px;
+            }
+
+            p {
+                @extend .body--text--md;
+            }
+        }
+
+        .customer-block {
+            @extend %flex-row;
+            width: 100%;
+            @include mini-tablet-scr {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            &__box {
+                width: 50%;
+                min-height: 435px;
+                @extend %flex-column--align-center;
+                justify-content: center;
+                @include mini-tablet-scr {
+                    width: 100%;
+                    border: none !important;
+                    min-height: auto;
+                }
+
+                &:first-child {
+                    border-right: 1px solid $grayTitle;
+                    @include mini-tablet-scr {
+                        margin-bottom: 70px;
+                    }
+                }
+
+                &:last-child {
+                    border-left: 1px solid $grayTitle;
+                }
+
+                .box-title {
+                    width: 355px;
+                    margin-bottom: 35px;
+                    @include lg-computer-scr {
+                        width: 90%;
+                    }
+                    @include mini-tablet-scr {
+                        width: 100%;
+                    }
+
+                    h4 {
+                        font-size: 14px;
+                        font-weight: $medium;
+                        line-height: 16px;
+                        color: $brandColor;
+                        letter-spacing: 2px;
+                        margin-bottom: 15px;
+                        text-transform: uppercase;
+                    }
+
+                    p {
+                        @extend .body--text--md;
+                    }
+                }
+
+                .box-form {
+                    @extend %flex-column--align-start;
+                    width: 355px;
+                    margin-bottom: 15px;
+                    @include lg-computer-scr {
+                        width: 90%;
+                    }
+
+                    &__input {
+                        @extend .text-input;
+                        width: inherit;
+                        margin-bottom: 15px;
+                        @include lg-computer-scr {
+                            width: 100%;
+                        }
+
+                        p {
+                            @extend .body--text--sm;
+                            text-transform: uppercase;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+
+                .box-error {
+                    width: 355px;
+                    margin-bottom: 25px;
+                    @include lg-computer-scr {
+                        width: 90%;
+                    }
+                }
+
+                .box-btn {
+                    @extend .cta--outlined;
+                    text-transform: uppercase;
+                }
+
+                .box-btn {
+                    @extend %flex-center;
+                    padding: 9px 25px;
+                    border-radius: 50px;
+                    cursor: pointer;
+                    transition: all $quickTransition;
+                    height: fit-content;
+        
+                    span {
+                        font-weight: $regular;
+                        font-size: $ctaFontSize;
+                        text-align: center;
+                        transition: all $quickTransition;
+                        color: $brandColor;
+                    }
+
+                    i {
+                        color: $brandColor;
+                        font-size: 17px;
+                        line-height: 0;
+                        animation: loading-spin 2s linear infinite;
+                    }
+    
+                    &:hover {
+                        background-color: $brandColor;
+                        
+                        span,
+                        i {
+                            color: $white;
+                        }
+                    }
+    
+                    &.no-hover {
+                        pointer-events: none !important;
+                    }
+                }
+            }
+        }
+
+        .home-link {
+            position: absolute;
+            @extend %h--align-center;
+            width: fit-content;
+            bottom: 50px;
+            font-size: 12px;
+            font-weight: $regular;
+            color: $grayTitle;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            @include mini-tablet-scr {
+                bottom: 20px;
+            }
+        }
+    }
+}

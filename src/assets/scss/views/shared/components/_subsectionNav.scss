@@ -1,0 +1,149 @@
+.subsection-nav {
+    height: fit-content;
+    width: 100%;
+    background-color: $primaryGray;
+    z-index: 6;
+    position: sticky;
+    top: $navBarHeight;
+    @extend %flex-center;
+
+    &__wrapper {
+        position: relative;
+        width: inherit;
+
+        &.fixed--width {
+            @include wide-scr {
+                width: 1650px;
+            }
+        }
+
+        span {
+            position: absolute;
+            top: 15px;
+            right: 5.5vw;
+            height: 20px;
+            width: 33px;
+            opacity: 0;
+            z-index: 2;
+            @include tablet-scr {
+                opacity: 1 !important;
+            }
+            
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                @extend %v--align-center;
+                height: 2px;
+                width: 20px;
+                background-color: $brandColor;
+                transition: all $quickTransition;
+            }
+
+            &::before {
+                left: 0;
+                transform: rotate(45deg);
+            }
+
+            &::after {
+                right: 0;
+                transform: rotate(-45deg);
+            }
+
+            &.animate {
+                &::before,
+                &::after {
+                    transform: rotate(0deg);
+                }
+            }
+        }
+
+        .items {
+            height: auto;
+            width: inherit;
+            background: transparent;
+            @extend %flex-row--justify-around;
+            align-items: flex-end;
+            transition: height $moderateTransition;
+            z-index: 0;
+            @include tablet-scr {
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                overflow: hidden;
+                height: 50px;
+            }
+            @include tablet-scr {
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+
+            &--opened {
+                @include tablet-scr {
+                    height: auto;
+                }
+            }
+
+            li {
+                height: inherit;
+                margin: 0 1vw;
+
+                &.tablet--active {
+                    visibility: hidden;
+                    display: none;
+                    @include tablet-scr {
+                        display: flex;
+                        visibility: visible;
+                        color: $brandColor;
+                        font-weight: $bold;
+                        margin: 0;
+                        min-height: 40px;
+                        text-transform: uppercase;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+
+                a {
+                    position: relative;
+                    min-height: 40px;
+                    @extend .uppercase-link;
+                    color: $grayTitle;
+                    @extend %flex-center;
+                    transition: all $quickTransition;
+                    overflow: hidden;
+                    text-align: center;
+                    @include tablet-scr {
+                        border: 1px solid transparent;
+                        border-radius: 4px;
+                        height: auto;
+                        padding: 8px 15px;
+                    }
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        @extend %h--align-center;
+                        bottom: -2px;
+                        width: 100%;
+                        height: 1px;
+                        transition: all $quickTransition;
+                        background-color: $brandColor;
+                        @include tablet-scr {
+                            display: none;
+                        }
+                    }
+
+                    &:hover,
+                    &.active {
+                        color: $brandColor;
+
+                        &::after {
+                            transform: translateY(-2px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

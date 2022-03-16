@@ -1,0 +1,87 @@
+.call-to-action {
+    font-weight: $regular;
+    font-size: $ctaFontSize;
+    text-align: center;
+    padding: 9px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all $quickTransition;
+    height: fit-content;
+    text-decoration: none;
+    letter-spacing: $linkLetters;
+    outline: none;
+    @include mini-tablet-scr {
+        padding: 7px 15px;
+    }
+
+    &:hover {
+        box-shadow: $buttonShadow;
+    }
+}
+
+.cta {
+    &--branded {
+        @extend .call-to-action;
+        border: none;
+        background-color: $brandColor;
+        color: $white;
+    
+        &:hover {
+            background-color: lighten($brandColor, 10%);
+        }
+    }
+
+    &--outlined {
+        @extend .call-to-action;
+        background-color: transparent;
+        border: 1px solid $brandColor;
+        color: $brandColor;
+    
+        &:hover {
+            background-color: $brandColor;
+            color: $white;
+        }
+    }
+
+    &--white--outlined {
+        @extend .call-to-action;
+        background-color: transparent;
+        border: 1px solid $white;
+        color: $white;
+    
+        &:hover {
+            background-color: $brandColor;
+            border-color: $brandColor;
+            color: $white;
+        }
+    }
+}
+
+// Action Links
+.link-action {
+    position: relative;
+    font-size: $ctaFontSize;
+    letter-spacing: $linkLetters;
+    cursor: pointer;
+    transition: all $quickTransition;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    @extend %flex-row;
+}
+
+.uppercase-link {
+    @extend .link-action;
+    font-weight: $regular;
+    text-transform: uppercase;
+}
+
+// Card actions
+.card--hover-effect {
+    box-shadow: $boxShadow;
+    transition: all $quickTransition;
+
+    &:hover {
+        box-shadow: $boxShadowHovered;
+    }
+}

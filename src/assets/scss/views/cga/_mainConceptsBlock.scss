@@ -1,0 +1,97 @@
+.main-concepts-block {
+    @extend .child-component;
+    background-color: $white;
+    @extend %flex-center;
+    
+    &__wrapper {
+        padding: 80px 0;
+        @extend %flex-column--align-center;
+        min-height: 120vh;
+        @include wide-scr {
+            min-height: auto;
+        }
+        @include lg-computer-scr {
+            min-height: 120vh;
+        }
+        @include computer-scr {
+            min-height: auto;
+        }
+        @include tablet-scr {
+            height: auto;
+        }
+
+        .image,
+        .boxes {
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .image {
+            position: relative;
+            padding-bottom: 8px;
+            overflow: hidden;
+            min-height: 500px;
+            border-radius: $boxRadius;
+            @include tablet-scr {
+                height: 350px;
+            }
+
+            img {
+                position: absolute;
+                @extend %v-h--align-center;
+                height: auto;
+                width: 100%;
+            }
+        }
+
+        .boxes {
+            padding-top: 20px;
+            @extend %flex-column--align-start;
+            background-color: $primaryGray;
+            min-height: 600px;
+            width: 100%;
+            @include tablet-scr {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            table {
+                min-height: 100%;
+                width: 50%;
+
+                tbody {
+                    tr {
+                        position: relative;
+
+                        td {
+                            padding: 20px;
+                            width: 50%;
+
+                            h4 {
+                                @extend .card--uppercase-title;
+                                color: $brandColor;
+                                margin-bottom: 15px;
+                            }
+
+                            h5,
+                            p {
+                                font-size: 16px;
+                                margin: 0;
+                                line-height: 19px;
+                                color: $linksColor;
+                            }
+
+                            h5 {
+                                font-weight: $medium;
+                            }
+
+                            p {
+                                font-weight: $regular;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,150 @@
+// POSITIONING
+%v--align-center {
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+%h--align-center {
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+%v-h--align-center {
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+%align--top-center {
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+%align--bottom-center {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+
+// BACKGROUND 
+%cover {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+// WIDTH & HEIGHT
+%full-screen--size {
+    min-width: 100%;
+    height: 100vh;
+}
+
+%full-height {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include box(100%);
+}
+
+%full--w-h {
+    width: 100%;
+    height: 100%;
+}
+
+
+// FLEXBOX
+%flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+%flex--align-end {
+    display: flex;
+    align-items: flex-end;
+}
+
+%flex--justify-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+%flex--justify-start {
+    display: flex;
+    justify-content: flex-start;
+}
+
+%flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+%flex-row--justify-between {
+    @extend %flex-row;
+    justify-content: space-between;
+}
+
+%flex-row--justify-around {
+    @extend %flex-row;
+    justify-content: space-around;
+}
+
+%flex-row--middle-between {
+    @extend %flex-row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+%flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+%flex-column--align-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+%flex-column--align-start {
+    @extend %flex-column;
+    align-items: flex-start;
+}
+
+%flex-column--justify-end {
+    @extend %flex-column;
+    justify-content: flex-end
+}
+
+%flex-column--start-top {
+    @extend %flex-column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+%flex-column--start-middle {
+    @extend %flex-column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+%flex-column--start-end {
+    @extend %flex-column;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+%flex-column--start-between {
+    @extend %flex-column;
+    align-items: flex-start;
+    justify-content: space-between;
+}

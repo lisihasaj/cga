@@ -1,0 +1,75 @@
+.gray-block {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 30%;
+    z-index: $subsectionBodyIndex;
+    background-color: $primaryGray;
+    @extend %flex-column;
+    align-items: center;
+    justify-content: center;
+    @include computer-scr {
+        position: relative;
+        order: 2;
+        width: 100%;
+        height: 300px;
+    }
+
+    &__content {
+        @extend %flex-column;
+        align-items: center;
+        width: 280px;
+        text-align: center;
+        @include md-computer-scr {
+            width: 90%;
+        }
+        @include computer-scr {
+            width: 280px;
+            padding-bottom: 50px;
+        }
+
+        h5 {
+            text-transform: uppercase;
+            font-size: 17px;
+            font-weight: $regular;
+            color: $grayText;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        h4 {
+            font-size: 20px;
+            font-weight: $medium;
+            color: $brandColor;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        p {
+            @extend .body--text--md;
+        }
+    }
+
+    &__links {
+        position: absolute;
+        @extend %h--align-center;
+        bottom: 60px;
+        @extend %flex-column;
+        align-items: center;
+        @include computer-scr {
+            bottom: 30px;
+        }
+
+        span {
+            font-size: 12px;
+            font-weight: $regular;
+            color: $grayText;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,128 @@
+//Input globals
+.form-label {
+    font-size: 14px;
+    font-weight: $regular;
+    color: $grayTitle;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.input-text {
+    font-size: 14px;
+    font-weight: $medium;
+    color: $grayText;
+    letter-spacing: 2px;
+}
+
+// Radios
+.radio-input {
+    position: relative;
+    @extend %flex-row;
+    min-height: 25px;
+
+    input {
+        position: absolute;
+        left: 0;
+        height: 100%;
+        width: 20px;
+        z-index: 1;
+        cursor: pointer;
+    }
+
+    label {
+        z-index: 0;
+        position: relative;
+        @extend .form-label;
+        padding-left: 30px;
+        display: flex;
+        align-items: center;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 18px;
+            height: 18px;
+            border: 2px solid $grayTitle;
+            border-radius: 50%;
+        }
+    
+        &::after {
+            position: absolute;
+            left: 4px;
+            content: '';
+            width: 14px;
+            height: 14px;
+            background-color: $brandColor;
+            border-radius: 13px;
+            opacity: 0;
+            transition: all $quickTransition;
+        }
+    }
+
+    input:checked + label::after {
+        opacity: 1;
+    }
+}
+
+// Text input
+.text-input {
+    input {
+        height: auto;
+        background-color: $primaryGray;
+        border: 1px solid transparent;
+        border-radius: $inputRadius;
+        padding: 15px;
+        @extend %full--w-h;
+        @extend .input-text;
+        transition: all $quickTransition;
+
+        &::placeholder {
+            @extend .form-label;
+        }
+
+        &.invalid {
+            border-color: red;
+            color: red;
+        }
+    }
+}
+
+.error {
+    font-size: 16px;
+    font-weight: $light;
+    color: red;
+    margin: 0;
+    font-style: italic;
+    user-select: none
+}
+
+.success {
+    font-size: 16px;
+    font-weight: $light;
+    color: green;
+    margin: 0;
+    font-style: italic;
+    user-select: none
+}
+
+// Textarea
+.textarea-input {
+    textarea {
+        @extend .input-text;
+        width: inherit;
+        height: auto;
+        background-color: $primaryGray;
+        border-radius: $inputRadius;
+        padding: 15px;
+        border: 1px solid transparent;
+
+        &::placeholder {
+            @extend .form-label;
+        }
+
+        &.invalid {
+            border-color: red;
+        }
+    }
+}

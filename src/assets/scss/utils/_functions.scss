@@ -1,0 +1,87 @@
+// MEDIA QUERIES
+@mixin mini-mobile-scr {
+    @media only screen and (max-width: $miniMobileBreakpoint) {
+        @content;
+    }
+}
+
+@mixin mobile-scr {
+    @media only screen and (max-width: $mobileBreakpoint) {
+        @content;
+    }
+}
+
+@mixin mini-tablet-scr {
+    @media only screen and (max-width: $miniTabletBreakpoint) {
+        @content;
+    }
+}
+
+@mixin tablet-scr {
+    @media only screen and (max-width: $tabletBreakpoint) {
+        @content;
+    }
+}
+
+@mixin computer-scr {
+    @media only screen and (max-width: $computerBreakpoint) {
+        @content;
+    }
+}
+
+@mixin md-computer-scr {
+    @media only screen and (max-width: $mediumMonitorBreakpoint) {
+        @content;
+    }
+}
+
+@mixin lg-computer-scr {
+    @media only screen and (max-width: $largeMonitorBreakpoint) {
+        @content;
+    }
+}
+
+@mixin wide-computer-scr {
+    @media only screen and (max-width: $widescreenBreakpoint) {
+        @content;
+    }
+}
+
+// For 1920px+
+@mixin wide-scr {
+    @media only screen and (min-width: $widescreenBreakpoint) {
+        @content;
+    }
+}
+
+
+// GENRAL MIXINS
+@mixin font-size($sizeValue: 1.6, $important: null) {
+    font-size: ($sizeValue * 10) + px $important;
+    font-size: $sizeValue + rem $important;
+}
+
+@mixin v-align($position) {
+    top: $position;
+    transform: translateY(-$position);
+}
+
+@mixin box($arg) {
+    width: $arg;
+    height: $arg;
+}
+
+@mixin full-height($position: absolute) {
+    position: $position;
+    top: 0;
+    left: 0;
+    @include box(100%);
+}
+
+
+// FLEX MIXINS
+@mixin flex-center() {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}

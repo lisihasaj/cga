@@ -1,0 +1,134 @@
+.documents-dropdown {
+    width: 100%;
+    overflow: hidden;
+    max-height: 65px;
+    @extend %flex-column;
+    align-items: flex-start;
+    border-bottom: 1px solid $grayTitle;
+    transition: all $moderateTransition;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    &.expanded {
+        max-height: fit-content;
+
+        .documents-dropdown__title {
+            color: $brandColor;
+
+            &::after {
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    &__title {
+        position: relative;
+        @extend .body--text--md;
+        color: $linksColor;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        min-height: 65px;
+        width: inherit;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        &::after {
+            content: '\e802';
+            font-family: 'fontello';
+            position: absolute;
+            right: 5px;    
+            @extend %v--align-center;
+            color: inherit;
+            font-size: 20px;
+            height: fit-content;
+            transform-origin: center;
+            transition: $quickTransition;
+        }
+    }
+
+    &__content {
+        width: inherit;
+        @extend %flex-row;
+        flex-wrap: wrap;
+        @include tablet-scr {
+            justify-content: space-between;
+        }
+
+        h4 {
+            @extend .body--text--md;
+            color: $linksColor;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            width: inherit;
+        }
+
+        table {
+            width: calc(25% - 12px);
+            background-color: $primaryGray;
+            margin-bottom: 15px;
+            margin-right: 15px;
+            @include tablet-scr {
+                width: calc(50% - 7px);
+                margin-right: 0;
+            }
+            @include mobile-scr {
+                width: 100%;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            tbody {
+                tr {
+                    td {
+                        padding-right: 15px;
+                        padding-left: 15px;
+                        font-size: 12px;
+                    }
+
+                    &:first-child {
+                        td {
+                            padding-top: 65px;
+                            padding-bottom: 15px;
+                            text-transform: uppercase;
+                            font-weight: $medium;
+                            color: $brandColor;
+                        }
+                    }
+
+                    &:last-child {
+                        td {
+                            padding-bottom: 20px;
+                            
+                            a {
+                                font-weight: $regular;
+                                color: $grayTitle;
+                                text-decoration: none;
+                                transition: all $quickTransition;
+
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.details-enter-active {
+    transition: opacity .3s;
+}
+.details-leave-active {
+    transition: opacity .1s;
+}
+.details-enter, .details-leave-to {
+    opacity: 0;
+}

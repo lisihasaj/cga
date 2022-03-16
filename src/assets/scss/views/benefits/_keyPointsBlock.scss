@@ -1,0 +1,110 @@
+.key-points-block {
+    @extend .child-component;
+    background-color: $white;
+    @extend %flex-center;
+
+    &__wrapper {
+        @extend %flex-column--align-center;
+
+        .item-block {
+            width: 100%;
+            max-width: 1100px;
+            background-color: $primaryGray;
+            @extend %flex-row--justify-between;
+            align-items: center;
+            height: 370px;
+            margin-bottom: 20px;
+            @include lg-computer-scr {
+                max-width: unset;
+                width: 100%;
+            }
+            @include computer-scr {
+                height: 320px;
+            }
+            @include tablet-scr {
+                flex-direction: column;
+                height: auto;
+                width: 80%;
+            }
+            @include mini-tablet-scr {
+                width: 100%;
+            }
+
+            &__text {
+                width: 60%;
+                @extend %flex-column--align-start;
+                padding: 0 7vw;
+                @include tablet-scr {
+                    width: 100%;
+                    height: 270px;
+                    padding: 30px 7vw;
+                }
+
+                h2 {
+                    @extend .component--uppercase-title;
+                    margin-bottom: 25px;
+                    color: $grayText;
+                }
+
+                ul {
+                    margin-bottom: 40px;
+                    @include computer-scr {
+                        margin-bottom: 15px
+                    }
+
+                    li {
+                        @extend .list-item;
+                        padding-left: 20px;
+                        color: $grayText;
+                        margin-bottom: 10px;
+                    }
+                }
+
+                a {
+                    @extend .cta--outlined;
+                }
+            }
+
+            &__image {
+                width: 40%;
+                height: 100%;
+                overflow: hidden;
+                @extend %flex-center;
+                @include tablet-scr {
+                    width: 100%;
+                    height: 400px;
+                }
+                @include mobile-scr {
+                    height: 300px;
+                }
+
+                img {
+                    height: 100%;
+                    width: auto;
+                }
+            }
+        }
+
+        h5 {
+            width: 100%;
+            max-width: 1100px;
+            text-align: center;
+            padding: 35px 25px;
+            background-color: $primaryGray;
+            @extend .body--text--lg;
+            color: $grayText;
+            @include lg-computer-scr {
+                max-width: unset;
+                width: 100%;
+            }
+            @include tablet-scr {
+                flex-direction: column;
+                height: auto;
+                width: 80%;
+            }
+            @include mini-tablet-scr {
+                width: 100%;
+            }
+        }
+    }
+}

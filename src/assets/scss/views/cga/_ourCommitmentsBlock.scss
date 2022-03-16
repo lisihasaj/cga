@@ -1,0 +1,136 @@
+.our-commitments-block {
+    @extend .child-component;
+    background-color: $primaryGray;
+    @extend %flex-center;
+
+    &__wrapper {
+        position: relative;
+        padding-top: 14vh;
+        padding-bottom: 14vh;
+        @extend %flex--justify-start;
+        @include tablet-scr {
+            flex-direction: column;
+            padding-top: 100px;
+            padding-bottom: 0;
+        }
+    }
+
+    &__text {
+        width: 50%;
+        @extend %flex-column--start-top;
+        @include md-computer-scr {
+            width: 60%;
+        }
+        @include computer-scr {
+            width: 100%;
+            padding-bottom: 550px;
+
+            h4,
+            h5,
+            ul {
+                width: 40%
+            }
+        }
+        @include tablet-scr {
+            h4,
+            h5,
+            ul {
+                width: 100%
+            }
+        }
+
+        h6 {
+            @extend .component--braces-title;
+        }
+
+        h1 {
+            @extend .component--md-title;
+            margin-bottom: 50px
+        }
+
+        h4 {
+            @extend .card--uppercase-title;
+            color: $brandColor;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        h5,
+        ul {
+            @extend .body--text--lg;
+            color: $grayText;
+        }
+
+        h5 {
+            font-weight: $medium;
+            margin: 0;
+        }
+
+        ul {
+            margin-bottom: 70px;
+            padding-left: 15px;
+            @include md-computer-scr {
+                margin-bottom: 50px;
+            }
+
+            li {
+                list-style: disc;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        table {
+            margin-bottom: 40px;
+            tbody {
+                tr {
+                    @extend %flex-row--justify-between;
+                    td {
+                        &:first-child {
+                            width: 30%;
+                            @include computer-scr {
+                                width: 20%;
+                            }
+                            @include tablet-scr {
+                                min-width: 120px;
+                            }
+                        }
+                        &:last-child {
+                            width: 70%;
+                            @include computer-scr {
+                                width: 80%;
+                            }
+                        }
+                        img {
+                            @include lg-computer-scr {
+                                width: 90px;
+                                height: auto
+                            }
+                        }
+                        p {
+                            @extend .body--text--lg;
+                            color: $grayText;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__image {
+        position: absolute;
+        bottom: -5px;
+        right: -100px;
+        height: 700px;
+        width: auto;
+        @include lg-computer-scr {
+            right: -240px;
+        }
+        @include computer-scr {
+            height: 600px;
+            right: -100px;
+        }
+    }
+}

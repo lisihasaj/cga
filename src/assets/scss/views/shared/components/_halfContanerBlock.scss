@@ -1,0 +1,451 @@
+// Global styling of the component
+.half-container-block {
+    @extend .child-component;
+    height: auto;
+
+    &__swiper {
+        width: 100%;
+        height: inherit;
+    }
+
+    &__slide {
+        width: inherit;
+        height: inherit;
+        @extend %flex-row;
+        background-color: $white;
+        @include tablet-scr {
+            flex-direction: column;
+        }
+        
+        .image {
+            position: relative;
+            @extend .half-container;
+            min-height: 100%;
+            @extend %cover;
+            @include tablet-scr {
+                order: 1 !important;
+                min-height: 500px !important;
+            }
+            @include mini-tablet-scr {
+                min-height: 45vh !important;
+            }
+        }
+    
+        .content-wrapper {
+            position: relative;
+            @extend .half-container;
+            height: fit-content;
+            background-color: $white;
+            @extend %flex-column;
+            align-items: flex-start;
+            justify-content: center;
+            @include tablet-scr {
+                order: 2 !important;
+                padding-left: $containerLg !important;
+                padding-right: $containerLg !important;
+            }
+            
+            .content {
+                height: fit-content;
+                width: 100%;
+                @extend %flex-column--start-middle;
+                @include wide-scr {
+                    width: 700px;
+                }
+
+                &-text {
+                    @extend %flex-column--start-middle;
+
+                    h6 {
+                        @extend .component--braces-title;
+                    }
+        
+                    h1 {
+                        @extend .component--md-title;
+                        margin-bottom: 40px;
+                        @include computer-scr {
+                            margin-bottom: 20px;
+                            margin-top: 10px;
+                        }
+                        @include tablet-scr {
+                            margin-bottom: 40px;
+                            margin-top: 25px
+                        }
+                    }
+
+                    h4 {
+                        @extend .component--uppercase-title;
+                        text-transform: uppercase;
+                        margin-bottom: 20px;
+                    }
+        
+                    p {
+                        @extend .body--text--lg;
+                    }
+
+                    ul {
+                        li {
+                            position: relative;
+                            @extend .body--text--lg;
+                            margin-bottom: 5px;
+                        }
+                    }
+                }
+
+                .cta {
+                    @extend .cta--outlined;
+                }
+            }
+
+            .slider {
+                &-navigation {
+                    margin-top: 40px;
+                    position: relative;
+                    @extend %flex-row--middle-between;
+                }
+
+                &-bullets {
+                    margin: 0 5px;
+                    @extend %flex-row--middle-between;
+                    
+                    .swiper-pagination-bullet {
+                        margin: 0 3px;
+                        width: 8px;
+                        height: 8px;
+                        border: 2px solid $grayTitle;
+                        transition: all $quickTransition;
+                        background-color: transparent;
+                        
+                        &-active {
+                            background-color: $grayTitle;
+                        }
+                    }
+                }
+
+                &-prev-button,
+                &-next-button {
+                    font-size: 18px;
+                    cursor: pointer;
+                    color: $grayTitle;
+                }
+            }
+        }
+    }
+}
+
+// Home specific styling
+.home--container {
+    .half-container-block {
+        &__slide {
+            .content-wrapper {
+                order: 1;
+                padding: 15vh $containerXl 15vh $containerLg;
+                @include wide-scr {
+                    align-items: flex-end;
+                }
+
+                .content {
+                    &-text {
+                        p {
+                            margin-bottom: 45px;
+                            @include mini-tablet-scr {
+                                margin-bottom: 30px;
+                            }
+                        }
+                    }
+                }
+            }
+    
+            .image {
+                order: 2;
+                background-position: 50% 50%;
+
+                &::before {
+                    background-color: rgba($color: #ffffff, $alpha: 0.5);
+                }
+            }
+        }
+    }
+}
+
+// About subsection specific styling
+.about--container {
+    .half-container-block {
+        &__slide {
+            .image {
+                order: 1;
+                background-position: 20% 50%;
+
+                &::before {
+                    background-color: rgba($color: #000000, $alpha: 0.02);
+                }
+            }
+
+            .content-wrapper {
+                order: 2;
+                padding: 18vh $containerLg 18vh $containerXl;
+                @include wide-scr {
+                    align-items: flex-start;
+                }
+
+                .content {
+                    &-text {
+                        ul {
+                            padding-left: 10px;
+
+                            li {
+                                padding-left: 40px;
+                                @extend .list-item;
+                            }
+                        }
+
+                        p {
+                            padding-left: 10px;
+                            margin-top: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Team subsection specific styling
+.team--container {
+    .half-container-block {
+        &__slide {
+            min-height: 500px;
+
+            .image {
+                order: 1;
+                background-position: 50% 100%;
+
+                &::before {
+                    background-color: rgba($color: #ffffff, $alpha: 0.3);
+                }
+            }
+
+            .content-wrapper {
+                order: 2;
+                padding: 15vh $containerLg 15vh $containerXl;
+                @include wide-scr {
+                    align-items: flex-start;
+                }
+
+                .content {
+                    &-text {
+                        p {
+                            margin-top: 30px;
+                            margin-bottom: 20px;
+                        }
+
+                        ul {
+                            padding-left: 15px;
+                            margin-bottom: 30px;
+
+                            li {
+                                list-style-type: disc;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Network subsection specific styling
+.network--container {
+    margin-top: 75px;
+
+    .half-container-block {
+        &__slide {
+            min-height: 610px;
+
+            .content-wrapper {
+                order: 1;
+                padding: 3vh $containerXl 3vh $containerLg;
+                width: 60%;
+                @include wide-scr {
+                    align-items: flex-end;
+                    width: 50%;
+                }
+                @include tablet-scr {
+                    width: 100%;
+                }
+
+                .content {
+                    &-text {
+                        height: auto;
+
+                        h1 {
+                            @extend .component--lg-title;
+                            margin-bottom: 65px;
+                        }
+
+                        p {
+                            margin-bottom: 45px;
+                        }
+                    }
+                }
+            }
+
+            .image {
+                order: 2;
+                width: 40%;
+                @include wide-scr {
+                    width: 50%;
+                }
+                @include tablet-scr {
+                    width: 100%;
+                }
+
+                &::before {
+                    background-color: rgba($color: #ffffff, $alpha: 0.3);
+                }
+            }
+        }
+    }
+}
+
+// Real estate subsection specific styling
+.real-estate--container {
+    &-1,
+    &-2 {
+        .half-container-block {
+            &__slide {
+                min-height: 780px;
+                
+                .image {
+                    min-height: 100%;
+
+                    &::before {
+                        background-color: rgba($color: #ffffff, $alpha: 0.2);
+                    }
+                }
+
+                .content-wrapper {
+                    padding-top: 5vh;
+                    padding-bottom: 5vh;
+                    align-self: center;
+
+                    .content {
+                        &-text {
+                            ul {
+                                padding-left: 10px;
+    
+                                li {
+                                    padding-left: 40px;
+                                    @extend .list-item;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &-1 {
+        margin-bottom: 100px;
+
+        .half-container-block {
+            &__slide {
+                .image {
+                    order: 1;
+                }
+
+                .content-wrapper {
+                    order: 2;
+                    padding-right: $containerLg;
+                    padding-left: $containerXl;
+                    @include wide-scr {
+                        align-items: flex-start;
+                    }
+                }
+            }
+        }
+    }
+
+    &-2 {
+        .half-container-block {
+            &__slide {
+                .content-wrapper {
+                    order: 1;
+                    padding-left: $containerLg;
+                    padding-right: $containerXl;
+                    @include wide-scr {
+                        align-items: flex-end;
+                    }
+                }
+
+                .image {
+                    order: 2;
+                }
+            }
+        }
+    }
+}
+
+// News Articles subsection specific styling
+.news-article--container {
+    padding: 50px 0;
+    
+    @include tablet-scr {
+        padding-bottom: 0;
+    }
+
+    .half-container-block {
+        &__slide {
+            min-height: 680px;
+
+            .image {
+                order: 1;
+                @include tablet-scr {
+                    margin-bottom: 40px;
+                }
+            }
+
+            .content-wrapper {
+                order: 2;
+                padding: 0 $containerXl;
+                justify-content: flex-start;
+                @include wide-scr {
+                    align-items: flex-start;
+                }
+
+                .content {
+                    align-items: flex-end;
+
+                    &-text {
+                        @extend %flex-center;
+                        @include tablet-scr {
+                            align-items: flex-start;
+                        }
+
+                        h1 {
+                            font-size: 40px;
+                            letter-spacing: 3px;
+                            text-transform: uppercase;
+                            font-weight: $medium;
+                            margin: 0;
+                            color: $brandColor;
+                            @include tablet-scr {
+                                margin-bottom: 10px;
+                            }
+                        }
+
+                        h6 {
+                            font-size: 17px;
+                            color: $grayTitle;
+                            font-weight: $regular;
+                            text-transform: uppercase;
+                            letter-spacing: 2px;
+                            margin-bottom: 50px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

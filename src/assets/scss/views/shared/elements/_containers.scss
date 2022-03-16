@@ -1,0 +1,182 @@
+// Main containers
+.container {
+    @mixin fixedWidth($width: null) {
+        @include wide-scr {
+            width: $width;
+        }
+    }
+
+    &--xl {
+        width: 90vw;
+        margin: unset auto;
+        @include fixedWidth(1720px);
+    }
+
+    &--lg {
+        width: 82vw;
+        margin: unset auto;
+        @include fixedWidth(1650px);
+    }
+
+    &--md {
+        width: 76vw;
+        margin: unset auto;
+        @include fixedWidth(1600px);
+    }
+
+    &--sm {
+        width: 60vw;
+        margin: unset auto;
+        @include fixedWidth(1150px);
+        @include computer-scr {
+            width: 70vw;
+        }
+        @include mini-tablet-scr {
+            width: 90vw;
+        }
+    }
+}
+
+// Columns
+.col {
+    &--20 {
+        width: 20%;
+    }
+
+    &--30 {
+        width: 30%;
+    }
+
+    &--49 {
+        width: 49%;
+    }
+
+    &--50 {
+        width: 50%;
+    }
+
+    &--100 {
+        width: 100%;
+    }
+}
+
+// Logo image size
+.logo--size {
+    width: 135px;
+    height: auto;
+    @include mini-tablet-scr {
+        width: 115px;
+    }
+}
+
+
+// Background layer
+.before--layer {
+    content: '';
+    position: absolute;
+    @extend %v-h--align-center;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+
+// Component containers
+.parent-component {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    z-index: $bodyIndex;
+}
+
+.child-component {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.half-container {
+    width: 50%;
+    @include tablet-scr {
+        width: 100%;
+    }
+}
+
+.layer--fixed {
+    content: '';
+    position: fixed;
+    top: 0;
+    @extend %h--align-center;
+    width: 100%;
+    height: $navBarHeight;
+    background-color: $primaryGray;
+    z-index: 8;
+}
+
+
+// News Article Card
+.article-card {
+    background-color: $primaryGray;
+    box-shadow: 0px 0px 19px rgba(0,0,0,0.01);
+    @extend %flex-row;
+    align-items: flex-end;
+    text-decoration: none;
+    transition: all $quickTransition;
+    @include mini-tablet-scr {
+        flex-direction: column;
+        height: auto !important;
+    }
+
+    &--image {
+        @extend %cover;
+        width: 50%;
+        height: 100%;
+        @include computer-scr {
+            width: 60%;
+        }
+        @include tablet-scr {
+            width: 50%;
+        }
+        @include mini-tablet-scr {
+            width: 100%;
+        }
+    }
+
+    &--text {
+        @extend %flex-column--align-start;
+        @include computer-scr {
+            width: 40%;
+        }
+        @include tablet-scr {
+            width: 50%;
+        }
+        @include mini-tablet-scr {
+            width: 100%;
+        }
+
+        p,
+        span {
+            @extend .body--text--sm;
+            color: $grayTitle;
+            transition: all $quickTransition;
+        }
+
+        p {
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h4 {
+            @extend .card--uppercase-title;
+            text-transform: uppercase;
+            color: $brandColor;
+            letter-spacing: 2px;
+        }
+    }
+
+    &--animated {
+        span {
+            text-decoration: underline;
+        }
+    }
+}

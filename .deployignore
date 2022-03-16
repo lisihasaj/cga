@@ -1,0 +1,13 @@
+public/.htaccess
+public/robots.txt
+public/sitemap.xml
+webpack.mix.js
+webpack.config.js
+tailwind.config.js
+package.json
+package-lock.json
+.gitignore
+.editorconfig
+.idea
+.vscode
+.vscode

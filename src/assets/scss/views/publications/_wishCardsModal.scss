@@ -1,0 +1,107 @@
+.wish-cards-modal {
+    position: fixed;
+    @extend %v-h--align-center;
+    @extend %full-screen--size;
+    background-color: rgba($color: #ffffff, $alpha: 0.7);
+    backdrop-filter: blur(7px);
+    z-index: 4;
+
+    &__wrapper {
+        position: relative;
+        @extend %full--w-h;
+        padding-top: calc(12vh + 100px);
+        padding-bottom: 60px;
+
+        span {
+            position: absolute;
+            top: calc(12vh + 100px);
+            right: 3vw;
+            height: 25px;
+            width: 2px;
+            padding: 0 10px;
+            cursor: pointer;
+            z-index: 2;
+            @include tablet-scr {
+                top: calc(12vh + 70px);
+            }
+            @include mobile-scr {
+                top: calc(13vh + 100px);
+            }
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                height: 25px;
+                width: 2px;
+                background-color: $brandColor;
+                @extend %v-h--align-center;
+            }
+
+            &::before {
+                transform: rotate(45deg);
+            }
+
+            &::after {
+                transform: rotate(-45deg);
+            }
+        }
+
+        .swiper {
+            &-container {
+                z-index: 0;
+                height: 100%;
+            }
+
+            &-wrapper {
+                height: 100%;
+            }
+
+            &-slide {
+                @extend %flex-center;
+                @extend %full--w-h;
+                opacity: 0;
+                transition: all $moderateTransition;
+
+                &-active {
+                    opacity: 1;
+                }
+
+                .image {
+                    height: 100%;
+                    width: auto;
+                    @include mini-tablet-scr {
+                        width: 90%;
+                        height: auto;
+                    }
+                    @include mobile-scr {
+                        width: 95%;
+                    }
+                }
+            }
+        }
+
+        .arrows {
+            @extend .pagination-arrows;
+            margin-top: 55vh;
+
+            i {
+                font-size: 44px;
+                @include mobile-scr {
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+
+.swiper-enter-active,
+.swiper-leave-active {
+  transition: opacity 0.3s ease-out;
+}
+
+.swiper-enter,
+.swiper-leave-active,
+.swiper-leave-to {
+  opacity: 0;
+}

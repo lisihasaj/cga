@@ -1,0 +1,9 @@
+.subsection__header {
+    position: relative;
+    width: 100%;
+    @extend %flex-center;
+    height: $subsectionHeader;
+    @extend %cover;
+    background-position: 50% 55%;
+    z-index: $subsectionBodyIndex;
+}

@@ -1,0 +1,82 @@
+// Colors
+//
+$white: 					#FFF;
+$black: 					#000;
+$darkBlue:					#194079;
+$lightBlue: 				#00D8FF;
+$darkGray:					#5f5f5f;
+$formColor:					#95989A;
+$brandColor:                #980321;
+$primaryGray:               #F5F5F5;
+$primaryBlack:              #2D2D2D;
+$grayTitle:                 #BABABA;
+$grayText:                  #6E6E6E;
+$linksColor:                #272727;
+
+
+// Font
+// Font weight
+$light:                         300;
+$regular:                       normal;
+$medium:                        500;
+$bold:                          bold;
+// Font style
+$italic:                        italic;
+// Font size
+$ctaFontSize:                   14px;
+// Text format
+$linkLetters:                   2px;
+
+
+// Main z-index
+$navIndex:                      10;
+$backdrop:                      9;
+$bodyIndex:                     0;
+$footerIndex:                   7;
+$subsectionBodyIndex:           5;
+
+
+// Breakpoints
+// 
+$miniMobileBreakpoint: 			380px;
+$mobileBreakpoint: 			    480px;
+$miniTabletBreakpoint: 			540px;
+$tabletBreakpoint: 			    850px;
+$computerBreakpoint: 		    1024px;
+$mediumMonitorBreakpoint: 	    1200px;
+$largeMonitorBreakpoint: 	    1400px;
+$widescreenBreakpoint: 		    1920px;
+
+
+// Spacing
+$containerXl:                    5vw;
+$containerLg:                   9vw;
+$containerMd:                   12vw;
+$containerSm:                   20vw;
+$navBarHeight:                  12vh;
+
+
+// Border radius
+//
+$boxRadius:                     10px;
+$containerRadius:               35px 35px 0 0;
+$inputRadius:                   10px;
+
+
+// Containers
+//
+$subsectionHeader:                  490px;
+
+
+// Shadows
+//
+$containerShadow:               0px -9px 21px rgba(0,0,0,0.15);
+$boxShadow:                     0px 3px 21px rgba(0,0,0,0.09);
+$boxShadowHovered:              0px 3px 12px rgba(0,0,0,0.2);
+$buttonShadow:                  0px 0px 13px rgba(0,0,0,0.09);
+
+
+// Animations
+// Transitions
+$quickTransition:               0.2s ease;
+$moderateTransition:            0.3s ease-in-out;

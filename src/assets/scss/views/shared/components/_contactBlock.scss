@@ -1,0 +1,184 @@
+.contact-block {
+    @extend .child-component;
+    background-color: $white;
+    @extend %flex-center;
+
+    &__wrapper {
+        @extend %flex-row--justify-between;
+        padding-top: 80px;
+        padding-bottom: 40px;
+        @include computer-scr {
+            flex-direction: column;
+            align-items: center;
+            padding-top: 10vh;
+            padding-bottom: 10vh;
+        }
+        @include mini-tablet-scr {
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+    }
+
+    &__text {
+        width: 35%;
+        @extend %flex-column--start-top;
+        min-height: 470px;
+        @include md-computer-scr {
+            width: 30%;
+        }
+        @include computer-scr {
+            width: 60%;
+            margin-bottom: 50px;
+            min-height: auto;
+            text-align: center;
+            align-items: center;
+        }
+        @include tablet-scr {
+            width: 80%;
+        }
+        @include mini-tablet-scr {
+            width: 100%;
+        }
+
+        h6 {
+            @extend .component--braces-title;
+        }
+
+        h1 {
+            @extend .component--xl-title;
+            margin-bottom: 25px;
+        }
+
+        p {
+            @extend .body--text--lg;
+        }
+    }
+
+    &__contact-form {
+        width: 60%;
+        min-height: 470px;
+        @extend %flex-column;
+        justify-content: center;
+        @include md-computer-scr {
+            width: 67%;
+        }
+        @include computer-scr {
+            width: 80%;
+            min-height: auto;
+        }
+        @include tablet-scr {
+            width: 100%;
+        }
+
+        // .radio-buttons {
+        //     @extend %flex-row--middle-between;
+        //     align-self: center;
+        //     width: 100%;
+        //     padding-left: 15px;
+        //     @include mini-tablet-scr {
+        //         flex-direction: column;
+        //         align-items: flex-start !important;
+        //     }
+
+        //     p {
+        //         @extend .col--20;
+        //         @extend .form-label;
+        //         display: flex;
+        //         align-self: center;
+        //         height: fit-content;
+        //         @include mini-tablet-scr {
+        //             margin-bottom: 15px;
+        //             margin-right: auto;
+        //             width: auto;
+        //         }
+        //     }
+
+        //     &__item {
+        //         position: relative;
+        //         @extend .radio-input;
+        //         @include mini-tablet-scr {
+        //             margin-left: 0;
+        //             margin-bottom: 15px;
+        //             width: 100% !important;
+        //         }
+
+        //         &:first-child {
+        //             @extend .col--30;
+        //             @include md-computer-scr {
+        //                 width: 40%;
+        //             }
+        //         }
+
+        //         &:last-child {
+        //             @extend .col--50;
+        //             @include md-computer-scr {
+        //                 width: 40%;
+        //             }
+        //         }
+        //     }
+        // }
+
+        .inputs {
+            width: 100%;
+            @extend %flex-row--justify-between;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            margin-bottom: 25px;
+
+            &__text-field {
+                @extend .text-input;
+                margin-bottom: 15px;
+                @include mini-tablet-scr {
+                    width: 100% !important;
+                }
+            }
+
+            &__textarea {
+                @extend .textarea-input;
+            }
+        }
+
+        .validations-container {
+            @extend %flex-row--justify-between;
+            align-items: flex-start;
+
+            .btn-container {
+                @extend %flex-center;
+                min-width: 120px;
+                height: 50px;
+                background-color: $primaryGray;
+                border-radius: $inputRadius;
+                cursor: pointer;
+                border: none;
+                padding: 0 15px;
+                transition: all $quickTransition;
+    
+                span {
+                    @extend .form-label;
+                    border: none;
+                    background: none;
+                    padding: 0;
+                    transition: all $quickTransition;
+                }
+
+                &:hover {
+                    background-color: darken($primaryGray, 5%);
+                    
+                    span {
+                        color: $brandColor;
+                    }
+                }
+
+                &.no-hover {
+                    pointer-events: none !important;
+                }
+        
+                i {
+                    color: $brandColor;
+                    font-size: 22px;
+                    animation: loading-spin 2s linear infinite;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,218 @@
+.cookies-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    background-color: $brandColor;
+    z-index: 15;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 3vw;
+    @include computer-scr {
+        background-color: $black;
+    }
+    @include tablet-scr {
+        flex-direction: column;
+        align-items: center;
+    }
+    &__content {
+        width: 70%;
+        @include tablet-scr {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        p {
+            color: $white;
+            font-size: 14px;
+            @include tablet-scr {
+                text-align: center;
+            }
+        }
+    }
+    &__actions {
+        width: auto;
+        margin: 0 15px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        .action {
+            font-size: 14px;
+            font-weight: 500;
+            min-width: 120px;
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &.ok {
+                background-color: $white;
+                color: $brandColor;
+                border: none;
+            }
+            &.learn-more {
+                background: transparent;
+                border: 1px solid $white !important;
+                color: $white !important;
+            }
+        }
+        .settings {
+            position: relative;
+            &__btn {
+                background: transparent;
+                border: none;
+                margin: 10px;
+                cursor: pointer;
+                img {
+                    height: 25px;
+                    width: auto;
+                }
+            }
+            &__menu {
+                position: absolute;
+                width: 220px;
+                height: 120px;
+                background-color: $brandColor;
+                top: -155px;
+                right: 30px;
+                padding: 15px;
+                opacity: 0;
+                visibility: hidden;
+                z-index: inherit;
+                transition: all 0.2s ease-in-out;
+                display: flex;
+                flex-direction: column;
+                @include lg-computer-scr {
+                    top: -145px;
+                }
+                @include computer-scr {
+                    top: -190px;
+                }
+                @include tablet-scr {
+                    top: -130px;
+                    background-color: $white;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -30px;
+                    right: 0;
+                    background: transparent;
+                    border-style: solid;
+                    border-width: 15px 10px;
+                    border-color: $brandColor transparent transparent transparent;
+                    @include tablet-scr {
+                        border-color: $white transparent transparent transparent !important;
+                    }
+                }
+
+                &.opened {
+                    transform: translateY(-20px);
+                    visibility: visible;
+                    opacity: 1;
+                }
+
+                h5 {
+                    color: $white;
+                    font-size: 15px;
+                    font-weight: 500;
+                    @include tablet-scr {
+                        color: $brandColor;
+                    }
+                }
+
+                hr {
+                    width: 100%;
+                    background-color: #EAEAEA;
+                    height: 0.1em;
+                }
+
+                .label-container {
+                    margin-bottom: 10px;
+                    input.checkbox {
+                        &:checked,
+                        &:not(:checked) {
+                            position: absolute;
+                            left: -9999px;
+                            display: none;
+                            +label {
+                                position: relative;
+                                padding-left: 30px;
+                                cursor: pointer;
+                                line-height: 20px;
+                                display: inline-block;
+                                color: $white;
+                                font-size: 13px;
+                                @include tablet-scr {
+                                    color: $brandColor !important;
+                                }
+                                &:before {
+                                    content: '';
+                                    position: absolute;
+                                    left: 0;
+                                    top: 0;
+                                    width: 18px;
+                                    height: 18px;
+                                    border: 2px solid #EAEAEA;
+                                    border-radius: 18px !important;
+                                    background: transparent; 
+                                    @include tablet-scr {
+                                        border-color: $brandColor !important;
+                                    }
+                                }
+                                &:after {
+                                    content: '';
+                                    width: 14px;
+                                    height: 14px;
+                                    background: $white;
+                                    position: absolute;
+                                    top: 4px;
+                                    left: 4px;
+                                    border-radius: 14px !important;
+                                    transition: all 0.2s ease;
+                                    @include tablet-scr {
+                                        background: $brandColor !important;
+                                    }
+                                }
+                            }
+                        }
+                        &:not(:checked) {
+                            +label {
+                                &:after {
+                                    opacity: 0;
+                                    transform: scale(0);                        
+                                }
+                            }
+                        }
+                        &:checked {
+                            + label {
+                                &:after {
+                                opacity: 1;
+                                transform: scale(1);
+                                }
+                            }  
+                        }
+                        &.checkbox {
+                            &:checked,
+                            &:not(:checked) {
+                                +label {
+                                    &:before,
+                                    &:after {
+                                        border-radius: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

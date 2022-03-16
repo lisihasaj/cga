@@ -1,0 +1,20 @@
+.planet {
+    position: relative;
+    width: 100%;
+    @extend %flex-center;
+    padding-top: 100px;
+    overflow: hidden;
+    @include tablet-scr {
+        padding-top: 30px;
+    }
+
+    img {
+        z-index: 0;
+        width: 100%;
+        height: auto;
+        margin-bottom: -10%;
+        @include wide-scr {
+            width: 1720px;
+        }
+    }
+}
